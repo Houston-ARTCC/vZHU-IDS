@@ -3,7 +3,7 @@
 //  vZHU IDS
 //
 //  Created by Riley Harper on 10/22/20.
-//
+//Hi Romashov
 
 import SwiftUI
 
@@ -45,6 +45,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+           
     }
 }
 
@@ -66,5 +67,5 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-// My favorite Sex position ;)
-// Hit em fast, hit em hard
+
+
