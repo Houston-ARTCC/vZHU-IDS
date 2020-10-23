@@ -35,10 +35,10 @@ struct ContentView: View {
             Text("Fourth Content View")
                 .tabItem {
                     Image(systemName: "airplane")
-                    Text("Event Briefings")
+                    Text("Event Info")
                 }.tag(4)
         }
-        .font(.largeTitle)
+        
     }
 }
 
