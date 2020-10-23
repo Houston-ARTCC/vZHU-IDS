@@ -6,8 +6,17 @@
 //Hi Romashov
 
 import SwiftUI
+import WebKit
+import UIKit
+class ViewController: UIViewController, WKUIDelegate {
+var webView: WKWebView!
 
-
+    override func loadView() {
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
+        webView.uiDelegate = self
+        view = webView
+    }
 struct ContentView: View {
 
     @State private var selection = 1
@@ -15,7 +24,8 @@ struct ContentView: View {
     var body: some View {
 
         TabView() {
-            Text("First Content View")
+            Text("Pre-Duty Items")
+            
                 .tabItem {
                     Image(systemName: "checkmark")
                     Text("Pre-Duty")
@@ -69,3 +79,4 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
+}
