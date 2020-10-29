@@ -5,6 +5,8 @@
 //  Created by Riley Harper on 10/22/20.
 //Hi Romashov
 //
+//
+
 
 import SwiftUI
 
@@ -18,7 +20,6 @@ struct ContentView: View {
 
         TabView() {
             Text("Pre-Duty Items")
-            
                 .tabItem {
                     Image(systemName: "checkmark")
                     Text("Pre-Duty")
@@ -38,7 +39,7 @@ struct ContentView: View {
             Text("Fourth Content View")
                 .tabItem {
                     Image(systemName: "airplane")
-                    Text("Traffic Management")
+                    Text("TMU Notices")
                 }.tag(4)
         }
         
