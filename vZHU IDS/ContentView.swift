@@ -3,7 +3,7 @@
 //  vZHU IDS
 //
 //  Created by Riley Harper on 10/22/20.
-//Hi Romashov
+//  Hi Romashov
 //
 //
 
@@ -66,7 +66,7 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-//Welcome Josh to our humble abode
+//  Welcome Josh to our humble abode
 
 
 
