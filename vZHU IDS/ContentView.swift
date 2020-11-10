@@ -56,7 +56,7 @@ struct ContentView: View {
 //          ################# vATIS  #################
 
             var atis_url : String = "https://zhuartcc.org/api/vatis/"
-            var atis_jsonResult : NSDictionary = HandleAPICall(url: atis_url) // DO NOT FORCE UNWRAP
+            var atis_jsonResult : NSDictionary? = HandleAPICall(url: atis_url) // DO NOT FORCE UNWRAP
 
             if (atis_jsonResult != nil) {
                 // process atis_jsonResult
@@ -71,7 +71,7 @@ struct ContentView: View {
 //          ################### TMU ###################
 
             var tmu_url : String = "https://zhuartc.org/api/tmis/"
-            var tmu_jsonResult : NSDictionary = HandleAPICall(url: tmu_url) // DO NOT FORCE UNWRAP
+            var tmu_jsonResult : NSDictionary? = HandleAPICall(url: tmu_url) // DO NOT FORCE UNWRAP
 
             if (tmu_jsonResult != nil) {
                 // process tmu_jsonResult
