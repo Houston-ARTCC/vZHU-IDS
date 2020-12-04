@@ -1,4 +1,4 @@
-//
+enter_tmu_key//
 //  ContentView.swift
 //  vZHU IDS
 //
@@ -12,7 +12,7 @@ import SwiftUI
 
 private let vatis_url : String = "zhuartcc.org/api/vatis/"
 private let tmu_url : String = "zhuartcc.org/api/tmu/"
-private let tmu_key : String = "$wF%50Wy"
+private let tmu_key : String = "enter_tmu_key"
 
 struct vAtisResponse: Codable {
     let facility : String
