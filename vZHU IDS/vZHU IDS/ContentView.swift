@@ -36,7 +36,6 @@ func HandleAPICall(url: String, airport: String?, key: String?, completionHandle
         request.addValue(key!, forHTTPHeaderField: "api_key")
     }
     
-    
     let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
         
         if let error = error {
