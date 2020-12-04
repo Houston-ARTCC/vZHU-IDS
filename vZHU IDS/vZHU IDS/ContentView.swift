@@ -2,20 +2,31 @@
 //  ContentView.swift
 //  vZHU IDS
 //
-//  Created by Riley Harper on 11/30/20.
-//
+//  Copyright © Riley Harper and Joshua Seagrave 2020
+//  Comments wherever they make sense to organize and seperate
+
 
 import SwiftUI
 
-struct ContentView: View {
+struct ContentView: View { //  Forms Physical View
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView {
+            Text("Pre-Duty Placeholder")
+                .tabItem {
+                    Image(systemName:"list.dash")
+                    Text("Pre-Duty")
+        }
+            Text("vATIS Placeholder")
+            .tabItem {
+                Image(systemName: "list.dash")
+                Text("vATIS")
+    }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider { //  creates preview in Xcode no need to remove on release
     static var previews: some View {
         ContentView()
     }
+}
 }
