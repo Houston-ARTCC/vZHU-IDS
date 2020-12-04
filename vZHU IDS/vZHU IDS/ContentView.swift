@@ -11,7 +11,7 @@ import SwiftUI
 
 private let vatis_url : String = "zhuartcc.org/api/vatis/"
 private let tmu_url : String = "zhuartcc.org/api/tmu/"
-private let tmu_key : String = "enter_tmu_key"
+private let tmu_key : String = "$wF%50Wy"
 
 struct vAtisResponse: Codable {
     let facility : String
@@ -33,7 +33,7 @@ func HandleAPICall(url: String, airport: String?, key: String?, completionHandle
     var request = URLRequest(url: m_url!)
     
     if (key != nil) {
-        request.addValue(key!, forHTTPHeaderField: "api_key")
+        request.addValue(key!, forHTTPHeaderField: "tmu_key")
     }
     
     let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
@@ -75,10 +75,15 @@ struct ContentView: View { //  Forms Physical View
                     Image(systemName:"list.dash")
                     Text("Pre-Duty")
                 }
-            Text("vATIS Placeholder")
+            HandleAPICall(url: vatis_url, airport: "KMSY", key: , completionHandler: )
             .tabItem {
                 Image(systemName: "list.dash")
                 Text("vATIS")
+                
+                Text("vATIS Placeholder")
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("vATIS")
                 }
         }
     }
@@ -88,4 +93,5 @@ struct ContentView_Previews: PreviewProvider { //  creates preview in Xcode no n
     static var previews: some View {
         ContentView()
     }
+}
 }
