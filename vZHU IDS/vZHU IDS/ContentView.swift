@@ -7,7 +7,6 @@ enter_tmu_key//
 //
 //  God Save the Queen
 
-
 import SwiftUI
 
 private let vatis_url : String = "zhuartcc.org/api/vatis/"
@@ -56,7 +55,6 @@ func HandleAPICall(url: String, airport: String?, key: String?, completionHandle
             }
             else if key != nil, let apiReturn = try? JSONDecoder().decode(tmuResponse.self, from: data) {
                 completionHandler([apiReturn.info, apiReturn.time_issued, apiReturn.time_expires] ?? [])
-                
             }
             else
             {
@@ -77,12 +75,12 @@ struct ContentView: View { //  Forms Physical View
                 .tabItem {
                     Image(systemName:"list.dash")
                     Text("Pre-Duty")
-            }
+                }
             Text("vATIS Placeholder")
             .tabItem {
                 Image(systemName: "list.dash")
                 Text("vATIS")
-            }
+                }
         }
     }
 }
