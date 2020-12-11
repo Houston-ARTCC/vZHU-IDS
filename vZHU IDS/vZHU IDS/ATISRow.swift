@@ -35,6 +35,7 @@ struct ATISRow: View {
                     Text(atisModel.response[3]).frame(maxWidth: .infinity, alignment: .leading).multilineTextAlignment(.leading)
                 } else {
                     Text("No ATIS Found.").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    Spacer()
                 }
             }
             Spacer()
