@@ -10,6 +10,7 @@
 import SwiftUI
 
 struct ContentView: View { //  Forms Physical View
+    
     var body: some View {
         TabView {
             PreDutyView()

@@ -12,7 +12,10 @@ let vatis_url : String = "https://zhuartcc.org/api/vatis/"
 let tmu_url : String = "https://zhuartcc.org/api/tmu/"
 let tmu_key : String = "$wF%50Wy"
 
-let airports : [airport] = [airport(airport: "KMSY")]
+let airports : [airport] = [airport(airport: "KMSY"),
+                            airport(airport: "KIAH"),
+                            airport(airport: "KHOU"),
+                            airport(airport: "KAUS")]
 
 struct airport: Identifiable {
     let id = UUID()
@@ -43,36 +46,41 @@ struct tmuResponse: Codable {
     let time_expires: String
 }
 
-func HandleATISAPICall (url: String, airport: String, completionHandler: @escaping (vAtisResponse) -> Void) {
+func HandleAPICall(url: String, airport: String? = nil, key: String? = nil, completionHandler: @escaping ([String]) -> Void) {
 
-    guard let rest = RestController.make(urlString: url + airport) else {
-        print("some badness has occurred in making the URL call")
-        return
+    let m_url = URL(string: url + airport!)
+    var request = URLRequest(url: m_url!)
+
+    if (key != nil) {
+        request.addValue(key!, forHTTPHeaderField: "api_key")
     }
-        
-    rest.get(vAtisResponse.self) { result, httpResponse in
-        do {
-            let response = try result.value()
-            completionHandler(response)
-                
-        } catch {
-            print("the response you've gotten isn't quite what we expected")
-            print(result)
+
+    let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
+
+        if let error = error {
+            // handle the error here
+            return
         }
-    }
-}
 
-
-func HandleTMUAPICall (url: String, key: String, completionHandler: @escaping (tmuResponse) -> Void) {
-    guard let rest = RestController.make(urlString: url) else {
-        // handle bad url here
-        return
-    }
-    rest.get(tmuResponse.self) { result, httpResponse in
-        do {
-            //something
-        } catch {
-            //something else
+        guard let httpResonse = response as? HTTPURLResponse, (200...299).contains(httpResonse.statusCode) else {
+            // handle the error here
+            return
         }
-    }
+
+        if let data = data {
+            if airport != nil, let apiReturn = try? JSONDecoder().decode(vAtisResponse.self, from: data) {
+                completionHandler([apiReturn.facility, apiReturn.config_profile, apiReturn.atis_letter, apiReturn.airport_conditions, apiReturn.notams] ?? [])
+            }
+            else if key != nil, let apiReturn = try? JSONDecoder().decode(tmuResponse.self, from: data) {
+                completionHandler([apiReturn.info, apiReturn.time_issued, apiReturn.time_expires] ?? [])
+            }
+            else
+            {
+                return
+            }
+        }
+
+    })
+
+    task.resume()
 }

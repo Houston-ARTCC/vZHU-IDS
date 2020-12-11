@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		6513A634257A791A00328289 /* APIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6513A633257A791A00328289 /* APIHandler.swift */; };
-		6541FA622583CB0600712251 /* RestEssentials in Frameworks */ = {isa = PBXBuildFile; productRef = 6541FA612583CB0600712251 /* RestEssentials */; };
 		6541FA802584010900712251 /* ATISRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6541FA7F2584010900712251 /* ATISRow.swift */; };
 		65F28986257A76E10061CBAD /* ATISView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F28985257A76E10061CBAD /* ATISView.swift */; };
 		65F2898E257A76F20061CBAD /* TMUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2898D257A76F20061CBAD /* TMUView.swift */; };
@@ -63,7 +62,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6541FA622583CB0600712251 /* RestEssentials in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +162,6 @@
 			);
 			name = "vZHU IDS";
 			packageProductDependencies = (
-				6541FA612583CB0600712251 /* RestEssentials */,
 			);
 			productName = "vZHU IDS";
 			productReference = F2A6473E2575ECE500A75EF8 /* vZHU IDS.app */;
@@ -238,7 +235,6 @@
 			);
 			mainGroup = F2A647352575ECE500A75EF8;
 			packageReferences = (
-				6541FA602583CB0600712251 /* XCRemoteSwiftPackageReference "RestEssentials" */,
 			);
 			productRefGroup = F2A6473F2575ECE500A75EF8 /* Products */;
 			projectDirPath = "";
@@ -602,25 +598,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		6541FA602583CB0600712251 /* XCRemoteSwiftPackageReference "RestEssentials" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sean7512/RestEssentials";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6541FA612583CB0600712251 /* RestEssentials */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6541FA602583CB0600712251 /* XCRemoteSwiftPackageReference "RestEssentials" */;
-			productName = RestEssentials;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F2A647362575ECE500A75EF8 /* Project object */;
 }
