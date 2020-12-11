@@ -2,21 +2,39 @@
 //  APIHandler.swift
 //  vZHU IDS
 //
-//  Created by user188128 on 12/4/20.
+//  Created by Joshua Seagrave on 12/4/20.
 //
 
 import Foundation
+import RestEssentials
 
-let vatis_url : String = "zhuartcc.org/api/vatis/"
-let tmu_url : String = "zhuartcc.org/api/tmu/"
+let vatis_url : String = "https://zhuartcc.org/api/vatis/"
+let tmu_url : String = "https://zhuartcc.org/api/tmu/"
 let tmu_key : String = "$wF%50Wy"
 
-struct vAtisResponse: Codable {
+let airports : [airport] = [airport(airport: "KMSY")]
+
+struct airport: Identifiable {
+    let id = UUID()
+    let airport : String
+}
+
+struct vAtisResponse: Codable, Identifiable {
+    let id : Int
     let facility : String
     let config_profile : String
     let atis_letter: String
     let airport_conditions: String
     let notams: String
+    
+    init() {
+        id = 0
+        facility = ""
+        config_profile = ""
+        atis_letter = ""
+        airport_conditions = ""
+        notams = ""
+    }
 }
 
 struct tmuResponse: Codable {
@@ -25,42 +43,36 @@ struct tmuResponse: Codable {
     let time_expires: String
 }
 
-func HandleAPICall(url: String, airport: String? = nil, key: String? = nil, completionHandler: @escaping ([String]) -> Void) {
-    
-    let m_url = URL(string: url + airport!)
-    var request = URLRequest(url: m_url!)
-    
-    if (key != nil) {
-        request.addValue(key!, forHTTPHeaderField: "tmu_key")
+func HandleATISAPICall (url: String, airport: String, completionHandler: @escaping (vAtisResponse) -> Void) {
+
+    guard let rest = RestController.make(urlString: url + airport) else {
+        print("some badness has occurred in making the URL call")
+        return
     }
-    
-    let task = URLSession.shared.dataTask(with: request, completionHandler: { (data, response, error) in
         
-        if let error = error {
-            // handle the error here
-            return
+    rest.get(vAtisResponse.self) { result, httpResponse in
+        do {
+            let response = try result.value()
+            completionHandler(response)
+                
+        } catch {
+            print("the response you've gotten isn't quite what we expected")
+            print(result)
         }
-        
-        guard let httpResonse = response as? HTTPURLResponse, (200...299).contains(httpResonse.statusCode) else {
-            // handle the error here
-            return
+    }
+}
+
+
+func HandleTMUAPICall (url: String, key: String, completionHandler: @escaping (tmuResponse) -> Void) {
+    guard let rest = RestController.make(urlString: url) else {
+        // handle bad url here
+        return
+    }
+    rest.get(tmuResponse.self) { result, httpResponse in
+        do {
+            //something
+        } catch {
+            //something else
         }
-        
-        if let data = data {
-            if airport != nil, let apiReturn = try? JSONDecoder().decode(vAtisResponse.self, from: data) {
-                completionHandler([apiReturn.facility, apiReturn.config_profile, apiReturn.atis_letter, apiReturn.airport_conditions, apiReturn.notams] ?? [])
-            }
-            else if key != nil, let apiReturn = try? JSONDecoder().decode(tmuResponse.self, from: data) {
-                completionHandler([apiReturn.info, apiReturn.time_issued, apiReturn.time_expires] ?? [])
-            }
-            else
-            {
-                return
-            }
-        }
-        
-    })
-    
-    task.resume()
-    
+    }
 }

@@ -1,0 +1,3 @@
+[submodule "vZHU IDS/RestEssentials"]
+	path = vZHU IDS/RestEssentials
+	url = https://github.com/sean7512/RestEssentials.git

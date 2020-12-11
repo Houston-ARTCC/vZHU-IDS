@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 @main
 struct vZHU_IDSApp: App {
     var body: some Scene {

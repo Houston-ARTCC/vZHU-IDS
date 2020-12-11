@@ -29,10 +29,10 @@ struct ContentView: View { //  Forms Physical View
                 }
         }
     }
-}
 
 struct ContentView_Previews: PreviewProvider { //  creates preview in Xcode no need to remove on release
     static var previews: some View {
         ContentView()
     }
+}
 }
