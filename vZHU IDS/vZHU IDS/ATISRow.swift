@@ -58,7 +58,9 @@ extension ATISRow {
         func getATISResults(facility: String) {
             HandleAPICall(url: vatis_url, airport: facility) { [weak self] result in
                 print(result)
-                self?.response = result
+                DispatchQueue.main.async {
+                    self?.response = result
+                }
             }
         }
     }
