@@ -8,14 +8,31 @@
 import Foundation
 import RestEssentials
 
-let vatis_url : String = "https://zhuartcc.org/api/vatis/"
+let vatis_url : String = "https://zhuartcc.org/api/vatis/K"
 let tmu_url : String = "https://zhuartcc.org/api/tmu/"
 let tmu_key : String = "$wF%50Wy"
 
-let airports : [airport] = [airport(airport: "KMSY"),
-                            airport(airport: "KIAH"),
-                            airport(airport: "KHOU"),
-                            airport(airport: "KAUS")]
+let airports : [airport] = [airport(airport: "AUS"),
+                            airport(airport: "BPT"),
+                            airport(airport: "BTR"),
+                            airport(airport: "CLL"),
+                            airport(airport: "CRP"),
+                            airport(airport: "CWF"),
+                            airport(airport: "CXO"),
+                            airport(airport: "DWH"),
+                            airport(airport: "EFD"),
+                            airport(airport: "GPT"),
+                            airport(airport: "HOU"),
+                            airport(airport: "IAH"),
+                            airport(airport: "LCH"),
+                            airport(airport: "LFT"),
+                            airport(airport: "MSY"),
+                            airport(airport: "NEW"),
+                            airport(airport: "NGP"),
+                            airport(airport: "POE"),
+                            airport(airport: "SAT"),
+                            airport(airport: "SGR"),
+                            airport(airport: "TME"),]
 
 struct airport: Identifiable {
     let id = UUID()

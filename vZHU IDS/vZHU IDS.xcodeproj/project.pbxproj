@@ -12,6 +12,7 @@
 		65F28986257A76E10061CBAD /* ATISView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F28985257A76E10061CBAD /* ATISView.swift */; };
 		65F2898E257A76F20061CBAD /* TMUView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F2898D257A76F20061CBAD /* TMUView.swift */; };
 		65F28993257A77020061CBAD /* PreDutyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65F28992257A77020061CBAD /* PreDutyView.swift */; };
+		65FED75825843B12009B87D8 /* ATISDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65FED75725843B12009B87D8 /* ATISDetailView.swift */; };
 		F2A647422575ECE500A75EF8 /* vZHU_IDSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A647412575ECE500A75EF8 /* vZHU_IDSApp.swift */; };
 		F2A647442575ECE500A75EF8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A647432575ECE500A75EF8 /* ContentView.swift */; };
 		F2A647462575ECEA00A75EF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2A647452575ECEA00A75EF8 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		65F28985257A76E10061CBAD /* ATISView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATISView.swift; sourceTree = "<group>"; };
 		65F2898D257A76F20061CBAD /* TMUView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUView.swift; sourceTree = "<group>"; };
 		65F28992257A77020061CBAD /* PreDutyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreDutyView.swift; sourceTree = "<group>"; };
+		65FED75725843B12009B87D8 /* ATISDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATISDetailView.swift; sourceTree = "<group>"; };
 		F2A6473E2575ECE500A75EF8 /* vZHU IDS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "vZHU IDS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2A647412575ECE500A75EF8 /* vZHU_IDSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vZHU_IDSApp.swift; sourceTree = "<group>"; };
 		F2A647432575ECE500A75EF8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				F2A647432575ECE500A75EF8 /* ContentView.swift */,
 				65F28985257A76E10061CBAD /* ATISView.swift */,
 				6541FA7F2584010900712251 /* ATISRow.swift */,
+				65FED75725843B12009B87D8 /* ATISDetailView.swift */,
 				6513A633257A791A00328289 /* APIHandler.swift */,
 				65F2898D257A76F20061CBAD /* TMUView.swift */,
 				65F28992257A77020061CBAD /* PreDutyView.swift */,
@@ -284,6 +287,7 @@
 				65F2898E257A76F20061CBAD /* TMUView.swift in Sources */,
 				6513A634257A791A00328289 /* APIHandler.swift in Sources */,
 				F2A647442575ECE500A75EF8 /* ContentView.swift in Sources */,
+				65FED75825843B12009B87D8 /* ATISDetailView.swift in Sources */,
 				F2A647422575ECE500A75EF8 /* vZHU_IDSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

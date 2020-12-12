@@ -10,7 +10,7 @@ import SwiftUI
 struct ATISRow: View {
     
     @ObservedObject var atisModel: ATISModel = ATISModel()
-    @State private var showingAlert = false
+    @State var showDetail = false
     
     var facility : airport
     
@@ -19,33 +19,35 @@ struct ATISRow: View {
     }
     
     var body: some View {
+        
         VStack {
             Text(facility.airport).font(.system(size: 36)).bold().frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             Spacer()
             HStack {
                 if(atisModel.response.count > 0) {
+                    Spacer()
                     Text(atisModel.response[2])
                         .font(.system(size: 36)).bold()
                     Spacer()
                     Spacer()
                 }
-              
-                if(atisModel.response.count > 0)
-                {
-                    Text(atisModel.response[3]).frame(maxWidth: .infinity, alignment: .leading).multilineTextAlignment(.leading)
+                  
+                if(atisModel.response.count > 0){
+                    Text(atisModel.response[3]).frame(maxWidth: .infinity, alignment: .leading).multilineTextAlignment(.leading).lineLimit(/*@START_MENU_TOKEN@*/2/*@END_MENU_TOKEN@*/)
                 } else {
                     Text("No ATIS Found.").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    Spacer()
                 }
+                Spacer()
             }
-            Spacer()
         }
-        
+        .onTapGesture {
+            self.showDetail.toggle()
+        }
         .onAppear {
             self.atisModel.getATISResults(facility: self.facility.airport)
         }
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text("vATIS"), message: Text("It's all gone really rather wrong!"))
+        .sheet(isPresented: $showDetail) {
+            ATISDetailView(details: atisModel.response, airport: facility.airport)
         }
     }
 }
@@ -59,6 +61,7 @@ extension ATISRow {
                 
         func getATISResults(facility: String) {
             HandleAPICall(url: vatis_url, airport: facility) { [weak self] result in
+                print(result)
                 self?.response = result
             }
         }
