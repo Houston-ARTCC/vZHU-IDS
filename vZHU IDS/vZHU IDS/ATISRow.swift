@@ -25,11 +25,8 @@ struct ATISRow: View {
             Spacer()
             HStack {
                 if(atisModel.response.count > 0) {
-                    Spacer()
                     Text(atisModel.response[2])
-                        .font(.system(size: 36)).bold()
-                    Spacer()
-                    Spacer()
+                        .font(.system(size: 48)).bold().padding(.trailing, 10.0)
                 }
                   
                 if(atisModel.response.count > 0){
@@ -37,8 +34,7 @@ struct ATISRow: View {
                 } else {
                     Text("No ATIS Found.").frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 }
-                Spacer()
-            }
+            }.padding(.horizontal, 10.0)
         }
         .onTapGesture {
             self.showDetail.toggle()

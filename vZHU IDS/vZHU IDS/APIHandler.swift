@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import RestEssentials
+import SwiftUI
 
 let vatis_url : String = "https://zhuartcc.org/api/vatis/K"
 let tmu_url : String = "https://zhuartcc.org/api/tmu/"
@@ -100,4 +100,10 @@ func HandleAPICall(url: String, airport: String? = nil, key: String? = nil, comp
     })
 
     task.resume()
+}
+
+extension UIScreen {
+    static let screenWidth = UIScreen.main.bounds.size.width
+    static let screenHeight = UIScreen.main.bounds.size.height
+    static let screenSize = UIScreen.main.bounds.size
 }
