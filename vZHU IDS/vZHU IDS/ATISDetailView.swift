@@ -2,7 +2,7 @@
 //  ATISDetailView.swift
 //  vZHU IDS
 //
-//  Created by user188128 on 12/11/20.
+//  Created by Joshua Seagrave on 12/11/20.
 //
 
 import SwiftUI
